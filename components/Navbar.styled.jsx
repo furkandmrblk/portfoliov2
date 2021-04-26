@@ -10,7 +10,8 @@ export const NavbarContainer = styled.div`
 
   width: 100%;
 
-  /* backdrop-filter: blur(5px); */
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.1);
 
   padding: 3.125rem 9.6875rem;
 `;
