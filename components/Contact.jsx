@@ -10,7 +10,9 @@ import { Power3, gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
-export const Contact = () => {
+export const Contact = (props) => {
+  const data = props.props.fields;
+
   let Title = useRef(null);
   let Button = useRef(null);
   let Image = useRef(null);
@@ -46,16 +48,21 @@ export const Contact = () => {
     <ContactContainer id="contact">
       <ContactColumn>
         <ContactTitle ref={(el) => (Title = el)}>
-          Ready to talk? Let's collaborate.
+          {data.contactTitle}
         </ContactTitle>
         <ContactButton
           ref={(el) => (Button = el)}
-          href="mailto:ibrahimdmrblk@outlook.de"
+          href={'mailto:' + data.email}
         >
           Contact Me
         </ContactButton>
       </ContactColumn>
-      <ContactImage ref={(el) => (Image = el)} />
+      <ContactImage
+        style={{
+          backgroundImage: `url('https:${data.contactImage.fields.file.url}')`,
+        }}
+        ref={(el) => (Image = el)}
+      />
     </ContactContainer>
   );
 };

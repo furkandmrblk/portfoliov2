@@ -19,7 +19,9 @@ import { Power3, gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
-export const Workflow = () => {
+export const Workflow = (props) => {
+  const data = props.props.fields;
+
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
   const [open3, setOpen3] = useState(false);
@@ -255,73 +257,61 @@ export const Workflow = () => {
             ref={(el) => (Item01 = el)}
             onClick={openDescription}
           >
-            <WorkflowItem>01 Discovery Session</WorkflowItem>
+            <WorkflowItem>{data.workflowTitle}</WorkflowItem>
             <WorkflowItemArrow id="Arrow" />
           </WorkflowItemDiv>
           <WorkflowDescription open={open}>
-            The Discovery Session is an important step in the process of a
-            project. In order to create a great product we first need to gain
-            crucial information to begin the analysis.
+            {data.workflowDescription}
           </WorkflowDescription>
           <WorkflowItemDiv
             ref={(el) => (Item02 = el)}
             onClick={openDescription2}
           >
-            <WorkflowItem>02 Analysis</WorkflowItem>
+            <WorkflowItem>{data.workflowTitle2}</WorkflowItem>
             <WorkflowItemArrow id="Arrow2" />
           </WorkflowItemDiv>
           <WorkflowDescription2 open2={open2}>
-            The Discovery Session is an important step in the process of a
-            project. In order to create a great product we first need to gain
-            crucial information to begin the analysis.
+            {data.workflowDescription2}
           </WorkflowDescription2>
           <WorkflowItemDiv
             ref={(el) => (Item03 = el)}
             onClick={openDescription3}
           >
-            <WorkflowItem>03 UI/UX Design</WorkflowItem>
+            <WorkflowItem>{data.workflowTitle3}</WorkflowItem>
             <WorkflowItemArrow id="Arrow3" />
           </WorkflowItemDiv>
           <WorkflowDescription3 open3={open3}>
-            The Discovery Session is an important step in the process of a
-            project. In order to create a great product we first need to gain
-            crucial information to begin the analysis.
+            {data.workflowDescription3}
           </WorkflowDescription3>
           <WorkflowItemDiv
             ref={(el) => (Item04 = el)}
             onClick={openDescription4}
           >
-            <WorkflowItem>04 Prototype</WorkflowItem>
+            <WorkflowItem>{data.workflowTitle4}</WorkflowItem>
             <WorkflowItemArrow id="Arrow4" />
           </WorkflowItemDiv>
           <WorkflowDescription4 open4={open4}>
-            The Discovery Session is an important step in the process of a
-            project. In order to create a great product we first need to gain
-            crucial information to begin the analysis.
+            {data.workflowDescription4}
           </WorkflowDescription4>
           <WorkflowItemDiv
             ref={(el) => (Item05 = el)}
             onClick={openDescription5}
           >
-            <WorkflowItem>05 Development</WorkflowItem>
+            <WorkflowItem>{data.workflowTitle5}</WorkflowItem>
             <WorkflowItemArrow id="Arrow5" />
           </WorkflowItemDiv>
           <WorkflowDescription5 open5={open5}>
-            The Discovery Session is an important step in the process of a
-            project. In order to create a great product we first need to gain
-            crucial information to begin the analysis.
+            {data.workflowDescription5}
           </WorkflowDescription5>
           <WorkflowItemDiv
             ref={(el) => (Item06 = el)}
             onClick={openDescription6}
           >
-            <WorkflowItem>06 SEO & Deployment</WorkflowItem>
+            <WorkflowItem>{data.workflowTitle6}</WorkflowItem>
             <WorkflowItemArrow id="Arrow6" />
           </WorkflowItemDiv>
           <WorkflowDescription6 open6={open6}>
-            The Discovery Session is an important step in the process of a
-            project. In order to create a great product we first need to gain
-            crucial information to begin the analysis.
+            {data.workflowDescription6}
           </WorkflowDescription6>
         </WorkflowItemContainer>
       </WorkflowDiv>

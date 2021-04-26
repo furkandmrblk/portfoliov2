@@ -9,7 +9,9 @@ import { Power3, gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
-export const Quote = () => {
+export const Quote = (props) => {
+  const data = props.props.fields;
+
   let Text = useRef(null);
 
   useEffect(() => {
@@ -27,9 +29,7 @@ export const Quote = () => {
     <QuoteContainer>
       <QuoteBackgroundBlock />
       <QuoteDiv>
-        <QuoteText ref={(el) => (Text = el)}>
-          "If you do it right, it will last forever."
-        </QuoteText>
+        <QuoteText ref={(el) => (Text = el)}>{data.quoteText}</QuoteText>
       </QuoteDiv>
     </QuoteContainer>
   );

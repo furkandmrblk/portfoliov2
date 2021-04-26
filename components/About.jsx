@@ -4,7 +4,9 @@ import { Power3, gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
-export const About = () => {
+export const About = (props) => {
+  const data = props.props.fields;
+
   let Text = useRef(null);
 
   useEffect(() => {
@@ -22,10 +24,7 @@ export const About = () => {
 
   return (
     <AboutContainer id="about">
-      <AboutText ref={(el) => (Text = el)}>
-        I am a web developer, brand strategist & UI/UX designer, based in
-        Berlin.
-      </AboutText>
+      <AboutText ref={(el) => (Text = el)}>{data.aboutText}</AboutText>
     </AboutContainer>
   );
 };

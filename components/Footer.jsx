@@ -9,7 +9,9 @@ import {
   FooterTitle,
 } from './Footer.styled';
 
-export const Footer = () => {
+export const Footer = (props) => {
+  const data = props.props.fields;
+
   return (
     <FooterContainer>
       <FooterDiv>
@@ -27,15 +29,16 @@ export const Footer = () => {
         </FooterItemDiv>
         <FooterItemDiv>
           <FooterTitle>Socials</FooterTitle>
-          <Link href="#">
-            <FooterItem>Instagram</FooterItem>
-          </Link>
-          <Link href="#">
-            <FooterItem>LinkedIn</FooterItem>
-          </Link>
-          <Link href="#">
-            <FooterItem>GitHub</FooterItem>
-          </Link>
+
+          <FooterItem>Instagram</FooterItem>
+
+          <FooterItem href={data.linkedIn} target="_blank">
+            LinkedIn
+          </FooterItem>
+
+          <FooterItem href={data.gitHub} target="_blank">
+            GitHub
+          </FooterItem>
         </FooterItemDiv>
         <FooterItemDiv>
           <FooterTitle>Legals</FooterTitle>
@@ -48,7 +51,7 @@ export const Footer = () => {
         </FooterItemDiv>
         <FooterItemDiv>
           <FooterTitle>Contact</FooterTitle>
-          <FooterItem href="mailto:ibrahimdmrblk@outlook.de">
+          <FooterItem href={'mailto:' + data.email}>
             ibrahimdmrblk@outlook.de
           </FooterItem>
         </FooterItemDiv>

@@ -45,9 +45,7 @@ export const ProjectBackground = styled.div`
   left: 0;
 
   height: 534px;
-  width: 1048px;
-
-  background-color: ${color.$crimson};
+  width: 1248px;
 `;
 
 export const ProjectBackground2 = styled.div`
@@ -57,8 +55,6 @@ export const ProjectBackground2 = styled.div`
 
   height: 336px;
   width: 865px;
-
-  background-color: ${color.$crimson};
 `;
 
 // Project Title, Description & CTA
@@ -94,7 +90,7 @@ export const ProjectArrow = styled.div`
   background-repeat: no-repeat;
 `;
 
-export const ProjectCTADiv = styled.div`
+export const ProjectCTADiv = styled.a`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -112,7 +108,7 @@ export const ProjectTextTitle = styled.h2`
 
 export const ProjectText = styled.h3`
   font-size: ${typeface.$sm};
-  max-width: 320px;
+  max-width: 533px;
 
   text-align: justify;
 `;
@@ -126,22 +122,18 @@ export const ProjectBigText = styled.h3`
 
 // Project Image & Big Image
 export const ProjectImage = styled.div`
-  background-image: url();
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  border: 1px solid #202020;
 
   height: 423px;
   width: 724px;
 `;
 
 export const ProjectBigImage = styled.div`
-  background-image: url();
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  border: 1px solid #202020;
 
   height: 633px;
   width: 100%;
@@ -150,11 +142,9 @@ export const ProjectBigImage = styled.div`
 `;
 
 export const ProjectVerticalImage = styled.div`
-  background-image: url();
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  border: 1px solid #202020;
 
   height: 633px;
   width: 533px;

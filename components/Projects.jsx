@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import {
   ProjectsBackground,
   ProjectsBox,
@@ -9,26 +10,28 @@ import {
 } from './Projects.styled';
 import * as color from '../theme/GlobalColors';
 
-export const Projects = () => {
+export const Projects = (props) => {
+  const data = props.props;
+
   return (
     <ProjectsContainer id="work">
       <ProjectsDiv>
-        <ProjectsBox style={{ backgroundImage: `url('/Baugedanke.svg')` }}>
-          <ProjectsBackground>
-            <ProjectsTitle>Baugedanke</ProjectsTitle>
-          </ProjectsBackground>
-          <ProjectsBackground>
-            <ProjectsSlogan>Gedacht. Geplant. Gebaut.</ProjectsSlogan>
-          </ProjectsBackground>
-        </ProjectsBox>
-        <ProjectsBox style={{ backgroundImage: `url('/Paragon.svg')` }}>
-          <ProjectsBackground>
-            <ProjectsTitle>Paragon</ProjectsTitle>
-          </ProjectsBackground>
-          <ProjectsBackground>
-            <ProjectsSlogan>Stand Out From The Crowd.</ProjectsSlogan>
-          </ProjectsBackground>
-        </ProjectsBox>
+        {data.map((project) => (
+          <Link key={project.sys.id} href={project.fields.slug}>
+            <ProjectsBox
+              style={{
+                backgroundImage: `url('https:${project.fields.projectImage.fields.file.url}')`,
+              }}
+            >
+              <ProjectsBackground>
+                <ProjectsTitle>{project.fields.projectTitle}</ProjectsTitle>
+              </ProjectsBackground>
+              <ProjectsBackground>
+                <ProjectsSlogan>{project.fields.projectSlogan}</ProjectsSlogan>
+              </ProjectsBackground>
+            </ProjectsBox>
+          </Link>
+        ))}
         <ProjectsBox style={{ backgroundImage: `url('/ComingSoon.svg')` }}>
           <ProjectsBackground>
             <ProjectsTitle>Coming Soon</ProjectsTitle>

@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import {
   ProjectArrow,
   ProjectBackground,
@@ -19,137 +20,233 @@ import {
   ProjectVerticalImage,
 } from './Project.styled';
 
-export const Project = () => {
+export const Project = (props) => {
+  const data = props.props.fields;
+
   return (
     <ProjectContainer>
-      <ProjectBackground />
+      <ProjectBackground style={{ backgroundColor: `${data.color}` }} />
       <ProjectRow style={{ marginBottom: '0' }}>
         <ProjectColumn>
-          <ProjectTitle>Project Title</ProjectTitle>
-          <ProjectDescription>
-            Project Description will be placed here
-          </ProjectDescription>
+          <ProjectTitle>{data.projectTitle}</ProjectTitle>
+          <ProjectDescription>{data.projectDescription}</ProjectDescription>
         </ProjectColumn>
       </ProjectRow>
       <ProjectRow>
         <ProjectColumn>
-          <ProjectCTADiv>
+          <ProjectCTADiv href={data.projectCta} target="_blank">
             <ProjectCTA>Visit Website</ProjectCTA>
             <ProjectArrow />
           </ProjectCTADiv>
-          <ProjectTextTitle>The Challenge</ProjectTextTitle>
-          <ProjectText>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum.
-          </ProjectText>
+
+          {data.projectTextTitle && data.projectText && (
+            <>
+              <ProjectTextTitle>{data.projectTextTitle}</ProjectTextTitle>
+              <ProjectText>
+                {data.projectText
+                  .replace(/\\n/g, ' ')
+                  .split('\n')
+                  .map((t, i) =>
+                    i > 0 ? (
+                      <span key={i}>
+                        <br />
+                        {t}
+                      </span>
+                    ) : (
+                      t
+                    )
+                  )}
+              </ProjectText>{' '}
+            </>
+          )}
         </ProjectColumn>
-        <ProjectImage />
+        {data.projectImage && (
+          <ProjectImage
+            style={{
+              backgroundImage: `url('https:${data.projectImage.fields.file.url}')`,
+            }}
+          />
+        )}
       </ProjectRow>
       <ProjectRow>
         <ProjectColumnHero>
-          <ProjectTextTitle>The Solution</ProjectTextTitle>
-          <ProjectText>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum.
-          </ProjectText>
+          {data.projectTextTitle2 && data.projectText2 && (
+            <>
+              <ProjectTextTitle>{data.projectTextTitle2}</ProjectTextTitle>
+              <ProjectText>
+                {data.projectText2
+                  .replace(/\\n/g, ' ')
+                  .split('\n')
+                  .map((t, i) =>
+                    i > 0 ? (
+                      <span key={i}>
+                        <br />
+                        {t}
+                      </span>
+                    ) : (
+                      t
+                    )
+                  )}
+              </ProjectText>{' '}
+            </>
+          )}
         </ProjectColumnHero>
-        <ProjectBackground2 />
+        <ProjectBackground2 style={{ backgroundColor: `${data.color}` }} />
       </ProjectRow>
-      <ProjectBigImage />
+      {data.projectBigImage && (
+        <ProjectBigImage
+          style={{
+            backgroundImage: `url('https:${data.projectBigImage.fields.file.url}')`,
+          }}
+        />
+      )}
       <ProjectRow>
         <ProjectColumn>
-          <ProjectTextTitle>The Process</ProjectTextTitle>
-          <ProjectBigText>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum. Lorem ipsum dolor sit amet, consetetur sadipscing
-            elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
-            magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
-            justo duo dolores et ea rebum.
-            <br />
-            <br />
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum. Lorem ipsum dolor sit amet, consetetur sadipscing
-            elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
-            magna aliquyam erat, sed diam voluptua. At vero eos et accusam et
-            justo duo dolores et ea rebum.
-          </ProjectBigText>
+          {data.projectBigTextTitle && data.projectBigText && (
+            <>
+              <ProjectTextTitle>{data.projectBigTextTitle}</ProjectTextTitle>
+              <ProjectBigText>
+                {data.projectBigText
+                  .replace(/\\n/g, ' ')
+                  .split('\n')
+                  .map((t, i) =>
+                    i > 0 ? (
+                      <span key={i}>
+                        <br />
+                        {t}
+                      </span>
+                    ) : (
+                      t
+                    )
+                  )}
+              </ProjectBigText>{' '}
+            </>
+          )}
         </ProjectColumn>
       </ProjectRow>
       <ProjectRow>
-        <ProjectVerticalImage />
+        {data.projectImage3 && (
+          <ProjectVerticalImage
+            style={{
+              backgroundImage: `url('https:${data.projectImage3.fields.file.url}')`,
+            }}
+          />
+        )}
         <ProjectColumn>
-          <ProjectTextTitle>Lorem Ipsum</ProjectTextTitle>
-          <ProjectText>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum.
-            <br />
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum.
-          </ProjectText>
-        </ProjectColumn>
-      </ProjectRow>
-      <ProjectRow>
-        <ProjectColumn>
-          <ProjectTextTitle>Lorem Ipsum</ProjectTextTitle>
-          <ProjectText>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum.
-            <br />
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum.
-          </ProjectText>
-        </ProjectColumn>
-        <ProjectVerticalImage />
-      </ProjectRow>
-      <ProjectRow>
-        <ProjectVerticalImage />
-        <ProjectColumn>
-          <ProjectTextTitle>Lorem Ipsum</ProjectTextTitle>
-          <ProjectText>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum.
-            <br />
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum.
-          </ProjectText>
+          {data.projectTextTitle3 && data.projectText3 && (
+            <>
+              <ProjectTextTitle>{data.projectTextTitle3}</ProjectTextTitle>
+              <ProjectText>
+                {data.projectText3
+                  .replace(/\\n/g, ' ')
+                  .split('\n')
+                  .map((t, i) =>
+                    i > 0 ? (
+                      <span key={i}>
+                        <br />
+                        {t}
+                      </span>
+                    ) : (
+                      t
+                    )
+                  )}
+              </ProjectText>{' '}
+            </>
+          )}
         </ProjectColumn>
       </ProjectRow>
       <ProjectRow>
         <ProjectColumn>
-          <ProjectTextTitle>Lorem Ipsum</ProjectTextTitle>
-          <ProjectText>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum.
-            <br />
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
-            nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
-            erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
-            et ea rebum.
-          </ProjectText>
+          {data.projectTextTitle4 && data.projectText4 && (
+            <>
+              <ProjectTextTitle>{data.projectTextTitle4}</ProjectTextTitle>
+              <ProjectText>
+                {data.projectText4
+                  .replace(/\\n/g, ' ')
+                  .split('\n')
+                  .map((t, i) =>
+                    i > 0 ? (
+                      <span key={i}>
+                        <br />
+                        {t}
+                      </span>
+                    ) : (
+                      t
+                    )
+                  )}
+              </ProjectText>{' '}
+            </>
+          )}
         </ProjectColumn>
-        <ProjectVerticalImage />
+        {data.projectImage4 && (
+          <ProjectVerticalImage
+            style={{
+              backgroundImage: `url('https:${data.projectImage4.fields.file.url}')`,
+            }}
+          />
+        )}
+      </ProjectRow>
+      <ProjectRow>
+        {data.projectImage5 && (
+          <ProjectVerticalImage
+            style={{
+              backgroundImage: `url('https:${data.projectImage5.fields.file.url}')`,
+            }}
+          />
+        )}
+        <ProjectColumn>
+          {data.projectTextTitle5 && data.projectText5 && (
+            <>
+              <ProjectTextTitle>{data.projectTextTitle5}</ProjectTextTitle>
+              <ProjectText>
+                {data.projectText5
+                  .replace(/\\n/g, ' ')
+                  .split('\n')
+                  .map((t, i) =>
+                    i > 0 ? (
+                      <span key={i}>
+                        <br />
+                        {t}
+                      </span>
+                    ) : (
+                      t
+                    )
+                  )}
+              </ProjectText>
+            </>
+          )}
+        </ProjectColumn>
+      </ProjectRow>
+      <ProjectRow>
+        <ProjectColumn>
+          {data.projectTextTitle6 && data.projectText6 && (
+            <>
+              <ProjectTextTitle>{data.projectTextTitle6}</ProjectTextTitle>
+              <ProjectText>
+                {data.projectText6
+                  .replace(/\\n/g, ' ')
+                  .split('\n')
+                  .map((t, i) =>
+                    i > 0 ? (
+                      <span key={i}>
+                        <br />
+                        {t}
+                      </span>
+                    ) : (
+                      t
+                    )
+                  )}
+              </ProjectText>{' '}
+            </>
+          )}
+        </ProjectColumn>
+        {data.projectImage6 && (
+          <ProjectVerticalImage
+            style={{
+              backgroundImage: `url('https:${data.projectImage6.fields.file.url}')`,
+            }}
+          />
+        )}
       </ProjectRow>
     </ProjectContainer>
   );

@@ -58,7 +58,6 @@ export const ContactImage = styled.div`
   height: 414px;
   width: 500px;
 
-  background-image: url('/ContactImage.svg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

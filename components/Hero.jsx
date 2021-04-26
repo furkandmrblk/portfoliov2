@@ -24,7 +24,9 @@ import {
   HeroVisualRedBlock3,
 } from './Hero.styled';
 
-export const Hero = () => {
+export const Hero = (props) => {
+  const data = props.props.fields;
+
   return (
     <HeroContainer>
       <HeroRow>
@@ -34,7 +36,7 @@ export const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.9, ease: 'easeOut' }}
           >
-            Web Development
+            {data.heroTitle}
           </HeroTitle>
 
           <HeroTitle
@@ -42,14 +44,14 @@ export const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.9, ease: 'easeOut' }}
           >
-            Brand Strategy
+            {data.heroTitle2}
           </HeroTitle>
           <HeroTitle
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: 'easeOut' }}
           >
-            UI/UX Design
+            {data.heroTitle3}
           </HeroTitle>
         </HeroLeft>
         <HeroRight>
