@@ -50,7 +50,7 @@ export const ContactButton = styled.a`
     color: ${color.$white};
   }
 
-  transition: all 350ms ease-in-out;
+  transition: background-color 350ms ease-in-out, color 350ms ease-in-out;
 `;
 
 // Contact Image

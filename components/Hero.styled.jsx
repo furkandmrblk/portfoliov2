@@ -53,7 +53,7 @@ export const HeroRight = styled.div`
 `;
 
 // Hero Title
-export const HeroTitle = styled(motion.h1)`
+export const HeroTitle = styled(motion.h2)`
   font-size: ${typeface.$lg};
 
   color: ${color.$white};

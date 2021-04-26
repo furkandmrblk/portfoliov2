@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import * as typeface from '../theme/GlobalFonts';
 import * as color from '../theme/GlobalColors';
 import { media } from '../theme/MediaQueries';
@@ -64,6 +64,7 @@ export const NavbarLeft = styled.div`
 
   color: ${color.$white};
 
+  height: 100vh;
   width: 60%;
 
   overflow: hidden;
@@ -77,7 +78,11 @@ export const NavbarRight = styled.div`
 
   color: ${color.$white};
 
+  height: 100vh;
   width: 40%;
+
+  overflow: hidden;
+  white-space: nowrap;
 `;
 
 export const NavbarItem = styled.h1`
@@ -111,10 +116,18 @@ export const NavbarLegals = styled.h2`
 
   &:not(:last-child) {
     margin-bottom: 0.975rem;
-    margin-top: 3rem;
   }
 
   cursor: pointer;
+`;
+
+export const NavbarLegalsDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+
+  height: 20vh;
 `;
 
 // Navbar Hamburger
@@ -145,3 +158,33 @@ export const NavbarHamburgerDiv = styled.div`
 `;
 
 // Navbar Right Elements
+
+const spin = keyframes`
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+`;
+
+export const CircularText = styled.h2`
+  position: relative;
+  font-size: ${typeface.$md};
+
+  border-radius: 100%;
+
+  white-space: nowrap;
+
+  animation: ${spin} 20s linear infinite;
+
+  margin-bottom: 5rem;
+
+  span {
+    position: absolute;
+
+    top: -50px;
+    right: 90px;
+    bottom: -50px;
+  }
+`;

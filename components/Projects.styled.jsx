@@ -30,7 +30,7 @@ export const ProjectsBox = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
 
-  height: 600px;
+  height: 700px;
   width: 100%;
 
   background-position: center;
