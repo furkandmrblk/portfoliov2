@@ -23,7 +23,7 @@ export const NavDiv = styled.div`
 `;
 
 // Navbar Logo
-export const NavbarLogo = styled.h2`
+export const NavbarLogo = styled.h1`
   z-index: 9999;
   font-size: ${typeface.$sm};
 

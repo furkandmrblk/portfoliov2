@@ -12,7 +12,7 @@ export const FooterContainer = styled.div`
 
   background-color: ${color.$black};
 
-  margin-top: 23.4375rem;
+  margin-top: 11.28125rem;
   padding: 10rem 9.6875rem 7.5rem 9.6875rem;
 `;
 

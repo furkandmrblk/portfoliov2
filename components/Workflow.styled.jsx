@@ -10,7 +10,7 @@ export const WorkflowContainer = styled.div`
   justify-content: flex-end;
   align-items: center;
 
-  padding: 23.4375rem 9.6875rem;
+  padding: 11.28125rem 9.6875rem;
 `;
 
 // Workflow Background Block

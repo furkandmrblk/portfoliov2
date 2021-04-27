@@ -11,7 +11,7 @@ export const QuoteContainer = styled.div`
 
   width: 100%;
 
-  padding: 23.4375rem 9.6875rem;
+  padding: 11.28125rem 9.6875rem;
 `;
 
 // Quote Background Block

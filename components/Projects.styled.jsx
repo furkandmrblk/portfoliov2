@@ -8,7 +8,7 @@ export const ProjectsContainer = styled.div`
   display: flex;
   align-items: center;
 
-  padding: 23.4375rem 9.6875rem;
+  padding: 11.28125rem 9.6875rem;
 `;
 
 export const ProjectsDiv = styled.div`

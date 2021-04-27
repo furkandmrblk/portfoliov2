@@ -65,7 +65,7 @@ export const Navbar = () => {
       angle += deltaangle;
       circle.appendChild(charelement);
     });
-  });
+  }, []);
 
   return (
     <NavbarContainer>

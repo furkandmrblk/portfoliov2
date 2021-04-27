@@ -9,7 +9,7 @@ export const AboutContainer = styled.div`
   justify-content: flex-start;
   align-items: center;
 
-  padding: 23.4375rem 9.6875rem;
+  padding: 23.4375rem 9.6875rem 11.28125rem 9.6875rem;
 `;
 
 // About Text

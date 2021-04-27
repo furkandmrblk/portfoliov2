@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import {
-  ProjectArrow,
   ProjectBackground,
   ProjectBackground2,
   ProjectBigImage,
@@ -28,15 +27,29 @@ export const Project = (props) => {
       <ProjectBackground style={{ backgroundColor: `${data.color}` }} />
       <ProjectRow style={{ marginBottom: '0' }}>
         <ProjectColumn>
-          <ProjectTitle>{data.projectTitle}</ProjectTitle>
-          <ProjectDescription>{data.projectDescription}</ProjectDescription>
+          <ProjectTitle style={{ color: `${data.textColor}` }}>
+            {data.projectTitle}
+          </ProjectTitle>
+          <ProjectDescription style={{ color: `${data.textColor}` }}>
+            {data.projectDescription}
+          </ProjectDescription>
         </ProjectColumn>
       </ProjectRow>
       <ProjectRow>
         <ProjectColumn>
           <ProjectCTADiv href={data.projectCta} target="_blank">
-            <ProjectCTA>Visit Website</ProjectCTA>
-            <ProjectArrow />
+            <ProjectCTA style={{ color: `${data.textColor}` }}>
+              Visit Website
+            </ProjectCTA>
+            <svg
+              width="24"
+              height="18"
+              viewBox="0 0 24 18"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M0 9H23M23 9L15 1M23 9L15 17" stroke={data.textColor} />
+            </svg>
           </ProjectCTADiv>
 
           {data.projectTextTitle && data.projectText && (

@@ -60,34 +60,21 @@ export const ProjectBackground2 = styled.div`
 // Project Title, Description & CTA
 export const ProjectTitle = styled.h2`
   font-size: ${typeface.$lg};
-  color: ${color.$white};
 
   margin-bottom: 1rem;
 `;
 
 export const ProjectDescription = styled.h3`
   font-size: ${typeface.$sm};
-  color: ${color.$white};
 
   margin-bottom: 3rem;
 `;
 
 export const ProjectCTA = styled.h3`
   font-size: ${typeface.$sm};
-  color: ${color.$white};
 
   margin-top: 6rem;
   margin-bottom: 6rem;
-`;
-
-export const ProjectArrow = styled.div`
-  height: 0.75rem;
-  width: 21px;
-
-  background-image: url('/WorkflowItemArrow.svg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
 `;
 
 export const ProjectCTADiv = styled.a`
@@ -97,17 +84,24 @@ export const ProjectCTADiv = styled.a`
   width: 9rem;
 
   cursor: pointer;
+
+  svg {
+    height: 0.75rem;
+    width: 21px;
+  }
 `;
 
 // Project TextTitle & Text
 export const ProjectTextTitle = styled.h2`
   font-size: ${typeface.$sm};
+  color: #000;
 
   margin-bottom: 1rem;
 `;
 
 export const ProjectText = styled.h3`
   font-size: ${typeface.$sm};
+  color: #000;
   max-width: 533px;
 
   text-align: justify;
@@ -115,6 +109,7 @@ export const ProjectText = styled.h3`
 
 export const ProjectBigText = styled.h3`
   font-size: ${typeface.$sm};
+  color: #000;
   max-width: 640px;
 
   text-align: justify;

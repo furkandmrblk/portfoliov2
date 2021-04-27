@@ -11,7 +11,7 @@ export const ContactContainer = styled.div`
 
   width: 100%;
 
-  padding: 23.4375rem 9.6875rem;
+  padding: 11.28125rem 9.6875rem;
 `;
 
 // Contact Column
@@ -46,7 +46,7 @@ export const ContactButton = styled.a`
   color: ${color.$black};
 
   &:hover {
-    background-color: ${color.$crimson};
+    background-color: ${color.$green};
     color: ${color.$white};
   }
 
