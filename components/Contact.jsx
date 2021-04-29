@@ -1,4 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import {
   ContactButton,
   ContactColumn,
@@ -6,62 +8,72 @@ import {
   ContactImage,
   ContactTitle,
 } from './Contact.styled';
-import { Power3, gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
 
 export const Contact = (props) => {
   const data = props.props.fields;
-
-  let Title = useRef(null);
-  let Button = useRef(null);
-  let Image = useRef(null);
+  const controls = useAnimation();
+  const { ref, inView } = useInView({ triggerOnce: true });
+  const { ref2, inView2 } = useInView({ triggerOnce: true });
 
   useEffect(() => {
-    gsap.from(Title, 1.5, {
-      opacity: 0,
-      y: 50,
-      ease: Power3.easeOut,
-      scrollTrigger: {
-        trigger: Title,
+    if (inView) {
+      controls.start('visible');
+    }
+    if (!inView) {
+      controls.start('hidden');
+    }
+  }, [controls, inView]);
+
+  useEffect(() => {
+    if (inView2) {
+      controls.start('visible');
+    }
+    if (!inView2) {
+      controls.start('hidden');
+    }
+  }, [controls, inView2]);
+
+  const fadeIn = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        ease: 'easeOut',
       },
-    });
-    gsap.from(Button, 1.5, {
-      opacity: 0,
-      y: 50,
-      ease: Power3.easeOut,
-      scrollTrigger: {
-        trigger: Button,
-      },
-    });
-    gsap.from(Image, 1.5, {
-      opacity: 0,
-      y: 50,
-      ease: Power3.easeOut,
-      scrollTrigger: {
-        trigger: Image,
-      },
-    });
-  });
+    },
+  };
 
   return (
     <ContactContainer id="contact">
       <ContactColumn>
-        <ContactTitle ref={(el) => (Title = el)}>
+        <ContactTitle
+          ref={ref}
+          initial="hidden"
+          animate={controls}
+          variants={fadeIn}
+        >
           {data.contactTitle}
         </ContactTitle>
         <ContactButton
-          ref={(el) => (Button = el)}
+          ref={ref}
+          initial="hidden"
+          animate={controls}
+          variants={fadeIn}
           href={'mailto:' + data.email}
         >
           Contact Me
         </ContactButton>
       </ContactColumn>
       <ContactImage
+        ref2={ref2}
+        initial="hidden"
+        animate={controls}
+        variants={fadeIn}
         style={{
           backgroundImage: `url('https:${data.contactImage.fields.file.url}')`,
         }}
-        ref={(el) => (Image = el)}
       />
     </ContactContainer>
   );

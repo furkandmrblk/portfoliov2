@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import * as typeface from '../theme/GlobalFonts';
 import { large, mediumA } from '../theme/GlobalFonts';
+import { motion } from 'framer-motion';
 import * as color from '../theme/GlobalColors';
 import { media } from '../theme/MediaQueries';
 
@@ -118,7 +119,7 @@ export const ContactButton = styled(mediumA)`
 `;
 
 // Contact Image
-export const ContactImage = styled.div`
+export const ContactImage = styled(motion.div)`
   height: 414px;
   width: 500px;
 

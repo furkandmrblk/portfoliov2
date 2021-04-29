@@ -8,7 +8,6 @@ import {
   ProjectsSlogan,
   ProjectsTitle,
 } from './Projects.styled';
-import * as color from '../theme/GlobalColors';
 
 export const Projects = (props) => {
   const data = props.props;

@@ -1,30 +1,44 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import { AboutContainer, AboutText } from './About.styled';
-import { Power3, gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
 
 export const About = (props) => {
   const data = props.props.fields;
-
-  let Text = useRef(null);
+  const controls = useAnimation();
+  const { ref, inView } = useInView({ triggerOnce: true });
 
   useEffect(() => {
-    setTimeout(() => {
-      gsap.from(Text, 1.5, {
-        opacity: 0,
-        y: 50,
-        ease: Power3.easeOut,
-        scrollTrigger: {
-          trigger: Text,
-        },
-      });
-    }, 500);
-  }, []);
+    if (inView) {
+      controls.start('visible');
+    }
+    if (!inView) {
+      controls.start('hidden');
+    }
+  }, [controls, inView]);
+
+  const fadeIn = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        ease: 'easeOut',
+      },
+    },
+  };
 
   return (
     <AboutContainer id="about">
-      <AboutText ref={(el) => (Text = el)}>{data.aboutText}</AboutText>
+      <AboutText
+        ref={ref}
+        initial="hidden"
+        animate={controls}
+        variants={fadeIn}
+      >
+        {data.aboutText}
+      </AboutText>
     </AboutContainer>
   );
 };

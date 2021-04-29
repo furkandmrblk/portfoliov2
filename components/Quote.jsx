@@ -1,35 +1,51 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import {
   QuoteContainer,
   QuoteBackgroundBlock,
   QuoteText,
   QuoteDiv,
 } from './Quote.styled';
-import { Power3, gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
 
 export const Quote = (props) => {
   const data = props.props.fields;
-
-  let Text = useRef(null);
+  const controls = useAnimation();
+  const { ref, inView } = useInView({ triggerOnce: true });
 
   useEffect(() => {
-    gsap.from(Text, 1.5, {
-      opacity: 0,
-      y: 50,
-      ease: Power3.easeOut,
-      scrollTrigger: {
-        trigger: Text,
+    if (inView) {
+      controls.start('visible');
+    }
+    if (!inView) {
+      controls.start('hidden');
+    }
+  }, [controls, inView]);
+
+  const fadeIn = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        ease: 'easeOut',
       },
-    });
-  });
+    },
+  };
 
   return (
     <QuoteContainer>
       <QuoteBackgroundBlock />
       <QuoteDiv>
-        <QuoteText ref={(el) => (Text = el)}>{data.quoteText}</QuoteText>
+        <QuoteText
+          ref={ref}
+          initial="hidden"
+          animate={controls}
+          variants={fadeIn}
+        >
+          {data.quoteText}
+        </QuoteText>
       </QuoteDiv>
     </QuoteContainer>
   );

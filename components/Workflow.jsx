@@ -1,4 +1,6 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import {
   WorkflowBackgroundBlock,
   WorkflowContainer,
@@ -15,12 +17,104 @@ import {
   WorkflowItemDiv,
   WorkflowTitle,
 } from './Workflow.styled';
-import { Power3, gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
 
 export const Workflow = (props) => {
   const data = props.props.fields;
+  const controls = useAnimation();
+  const { ref, inView } = useInView({ triggerOnce: true });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    }
+    if (!inView) {
+      controls.start('hidden');
+    }
+  }, [controls, inView]);
+
+  const fadeIn0 = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        ease: 'easeInOut',
+      },
+    },
+  };
+  const fadeIn = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        ease: 'easeInOut',
+        delay: 0.2,
+      },
+    },
+  };
+  const fadeIn2 = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        ease: 'easeInOut',
+        delay: 0.4,
+      },
+    },
+  };
+  const fadeIn3 = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        ease: 'easeInOut',
+        delay: 0.6,
+      },
+    },
+  };
+  const fadeIn4 = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        ease: 'easeInOut',
+        delay: 0.8,
+      },
+    },
+  };
+  const fadeIn5 = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        ease: 'easeInOut',
+        delay: 1,
+      },
+    },
+  };
+  const fadeIn6 = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+        ease: 'easeInOut',
+        delay: 1.2,
+      },
+    },
+  };
 
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
@@ -177,85 +271,25 @@ export const Workflow = (props) => {
     }
   });
 
-  let Title = useRef(null);
-  let Item01 = useRef(null);
-  let Item02 = useRef(null);
-  let Item03 = useRef(null);
-  let Item04 = useRef(null);
-  let Item05 = useRef(null);
-  let Item06 = useRef(null);
-
-  useEffect(() => {
-    gsap.from(Title, 1.5, {
-      opacity: 0,
-      y: 50,
-      ease: Power3.easeOut,
-      scrollTrigger: {
-        trigger: Item02,
-      },
-    });
-    gsap.from(Item01, 1.5, {
-      opacity: 0,
-      y: 50,
-      ease: Power3.easeOut,
-      scrollTrigger: {
-        trigger: Item03,
-      },
-    });
-    gsap.from(Item02, 1.5, {
-      opacity: 0,
-      y: 50,
-      ease: Power3.easeOut,
-      scrollTrigger: {
-        trigger: Item04,
-      },
-    });
-    gsap.from(Item03, 1.5, {
-      opacity: 0,
-      y: 50,
-      ease: Power3.easeOut,
-      scrollTrigger: {
-        trigger: Item05,
-      },
-    });
-
-    setTimeout(() => {
-      gsap.from(Item04, 1.5, {
-        opacity: 0,
-        y: 50,
-        ease: Power3.easeOut,
-        scrollTrigger: {
-          trigger: Item06,
-        },
-      });
-      gsap.from(Item05, 1.5, {
-        opacity: 0,
-        y: 50,
-        ease: Power3.easeOut,
-        scrollTrigger: {
-          trigger: Item05,
-        },
-      });
-      gsap.from(Item06, 1.5, {
-        opacity: 0,
-        y: 50,
-        ease: Power3.easeOut,
-        scrollTrigger: {
-          trigger: Item06,
-        },
-      });
-    }, 300);
-  }, []);
-
   return (
     <WorkflowContainer>
       <WorkflowBackgroundBlock />
       <WorkflowDiv>
-        <WorkflowTitle ref={(el) => (Title = el)}>Workflow</WorkflowTitle>
+        <WorkflowTitle
+          ref={ref}
+          initial="hidden"
+          animate={controls}
+          variants={fadeIn0}
+        >
+          Workflow
+        </WorkflowTitle>
         <WorkflowItemContainer>
           <WorkflowItemDiv
-            ref={(el) => (Item01 = el)}
             onClick={openDescription}
+            ref={ref}
+            initial="hidden"
+            animate={controls}
+            variants={fadeIn}
           >
             <WorkflowItem>{data.workflowTitle}</WorkflowItem>
             <WorkflowItemArrow id="Arrow" />
@@ -264,8 +298,11 @@ export const Workflow = (props) => {
             {data.workflowDescription}
           </WorkflowDescription>
           <WorkflowItemDiv
-            ref={(el) => (Item02 = el)}
             onClick={openDescription2}
+            ref={ref}
+            initial="hidden"
+            animate={controls}
+            variants={fadeIn2}
           >
             <WorkflowItem>{data.workflowTitle2}</WorkflowItem>
             <WorkflowItemArrow id="Arrow2" />
@@ -274,8 +311,11 @@ export const Workflow = (props) => {
             {data.workflowDescription2}
           </WorkflowDescription2>
           <WorkflowItemDiv
-            ref={(el) => (Item03 = el)}
             onClick={openDescription3}
+            ref={ref}
+            initial="hidden"
+            animate={controls}
+            variants={fadeIn3}
           >
             <WorkflowItem>{data.workflowTitle3}</WorkflowItem>
             <WorkflowItemArrow id="Arrow3" />
@@ -284,8 +324,11 @@ export const Workflow = (props) => {
             {data.workflowDescription3}
           </WorkflowDescription3>
           <WorkflowItemDiv
-            ref={(el) => (Item04 = el)}
             onClick={openDescription4}
+            ref={ref}
+            initial="hidden"
+            animate={controls}
+            variants={fadeIn4}
           >
             <WorkflowItem>{data.workflowTitle4}</WorkflowItem>
             <WorkflowItemArrow id="Arrow4" />
@@ -294,8 +337,11 @@ export const Workflow = (props) => {
             {data.workflowDescription4}
           </WorkflowDescription4>
           <WorkflowItemDiv
-            ref={(el) => (Item05 = el)}
             onClick={openDescription5}
+            ref={ref}
+            initial="hidden"
+            animate={controls}
+            variants={fadeIn5}
           >
             <WorkflowItem>{data.workflowTitle5}</WorkflowItem>
             <WorkflowItemArrow id="Arrow5" />
@@ -304,8 +350,11 @@ export const Workflow = (props) => {
             {data.workflowDescription5}
           </WorkflowDescription5>
           <WorkflowItemDiv
-            ref={(el) => (Item06 = el)}
             onClick={openDescription6}
+            ref={ref}
+            initial="hidden"
+            animate={controls}
+            variants={fadeIn6}
           >
             <WorkflowItem>{data.workflowTitle6}</WorkflowItem>
             <WorkflowItemArrow id="Arrow6" />

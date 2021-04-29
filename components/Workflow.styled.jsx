@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import * as typeface from '../theme/GlobalFonts';
 import { large, medium, small } from '../theme/GlobalFonts';
+import { motion } from 'framer-motion';
 import * as color from '../theme/GlobalColors';
 import { media } from '../theme/MediaQueries';
 
@@ -104,7 +105,7 @@ export const WorkflowItemContainer = styled.div`
   align-items: center;
 `;
 
-export const WorkflowItemDiv = styled.div`
+export const WorkflowItemDiv = styled(motion.div)`
   z-index: 1;
   position: relative;
   display: flex;
@@ -166,7 +167,7 @@ export const WorkflowDescription = styled(small)`
     height: ${({ open }) => (open ? '7.5rem' : '0')};
   }
   @media (max-width: ${media.laptopM}) {
-    height: ${({ open }) => (open ? '6rem' : '0')};
+    height: ${({ open }) => (open ? '6.5rem' : '0')};
   }
   @media (max-width: ${media.tablet}) {
     height: ${({ open }) => (open ? '8rem' : '0')};
@@ -194,7 +195,7 @@ export const WorkflowDescription2 = styled(small)`
     height: ${({ open2 }) => (open2 ? '7.5rem' : '0')};
   }
   @media (max-width: ${media.laptopM}) {
-    height: ${({ open2 }) => (open2 ? '6rem' : '0')};
+    height: ${({ open2 }) => (open2 ? '6.5rem' : '0')};
   }
   @media (max-width: ${media.tablet}) {
     height: ${({ open2 }) => (open2 ? '8rem' : '0')};
@@ -222,7 +223,7 @@ export const WorkflowDescription3 = styled(small)`
     height: ${({ open3 }) => (open3 ? '7.5rem' : '0')};
   }
   @media (max-width: ${media.laptopM}) {
-    height: ${({ open3 }) => (open3 ? '6rem' : '0')};
+    height: ${({ open3 }) => (open3 ? '6.5rem' : '0')};
   }
   @media (max-width: ${media.tablet}) {
     height: ${({ open3 }) => (open3 ? '8rem' : '0')};
@@ -250,7 +251,7 @@ export const WorkflowDescription4 = styled(small)`
     height: ${({ open4 }) => (open4 ? '7.5rem' : '0')};
   }
   @media (max-width: ${media.laptopM}) {
-    height: ${({ open4 }) => (open4 ? '6rem' : '0')};
+    height: ${({ open4 }) => (open4 ? '6.5rem' : '0')};
   }
   @media (max-width: ${media.tablet}) {
     height: ${({ open4 }) => (open4 ? '8rem' : '0')};
@@ -278,7 +279,7 @@ export const WorkflowDescription5 = styled(small)`
     height: ${({ open5 }) => (open5 ? '7.5rem' : '0')};
   }
   @media (max-width: ${media.laptopM}) {
-    height: ${({ open5 }) => (open5 ? '6rem' : '0')};
+    height: ${({ open5 }) => (open5 ? '6.5rem' : '0')};
   }
   @media (max-width: ${media.tablet}) {
     height: ${({ open5 }) => (open5 ? '8rem' : '0')};
@@ -306,7 +307,7 @@ export const WorkflowDescription6 = styled(small)`
     height: ${({ open6 }) => (open6 ? '7.5rem' : '0')};
   }
   @media (max-width: ${media.laptopM}) {
-    height: ${({ open6 }) => (open6 ? '6rem' : '0')};
+    height: ${({ open6 }) => (open6 ? '6.5rem' : '0')};
   }
   @media (max-width: ${media.tablet}) {
     height: ${({ open6 }) => (open6 ? '8rem' : '0')};
