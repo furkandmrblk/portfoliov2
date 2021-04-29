@@ -7,6 +7,7 @@ export const media = {
   laptopS: '1024px',
   laptopM: '1170px',
   laptopL: '1440px',
+  desktopM: '1650px',
   desktop: '2560px',
 };
 

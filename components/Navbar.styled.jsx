@@ -1,5 +1,13 @@
 import styled, { keyframes } from 'styled-components';
 import * as typeface from '../theme/GlobalFonts';
+import {
+  extrasmall,
+  small,
+  smallA,
+  medium,
+  mediumA,
+  large,
+} from '../theme/GlobalFonts';
 import * as color from '../theme/GlobalColors';
 import { media } from '../theme/MediaQueries';
 
@@ -14,6 +22,22 @@ export const NavbarContainer = styled.div`
   background-color: rgba(255, 255, 255, 0.1);
 
   padding: 3.125rem 9.6875rem;
+
+  @media (max-width: ${media.laptopL}) {
+    padding: 3.125rem 6.6875rem;
+  }
+  @media (max-width: ${media.laptopS}) {
+    padding: 3.125rem 4.6875rem;
+  }
+  @media (max-width: ${media.tablet}) {
+    padding: 3.125rem 3.6875rem;
+  }
+  @media (max-width: ${media.between}) {
+    padding: 3.125rem 2.6875rem;
+  }
+  @media (max-width: ${media.mobileM}) {
+    padding: 3.125rem 1.6875rem;
+  }
 `;
 export const NavDiv = styled.div`
   z-index: 9999;
@@ -23,9 +47,8 @@ export const NavDiv = styled.div`
 `;
 
 // Navbar Logo
-export const NavbarLogo = styled.h1`
+export const NavbarLogo = styled(small)`
   z-index: 9999;
-  font-size: ${typeface.$sm};
 
   color: ${({ open }) => (open ? `${color.$white}` : `${color.$black}`)};
 
@@ -55,6 +78,27 @@ export const NavbarMegaMenu = styled.div`
   transition: all 800ms ease-in-out;
 
   padding: ${({ open }) => (open ? '3.125rem 9.6875rem' : '0')};
+
+  @media (max-width: ${media.laptopL}) {
+    padding: ${({ open }) => (open ? '3.125rem 6.6875rem' : '0')};
+  }
+  @media (max-width: ${media.laptopS}) {
+    padding: ${({ open }) => (open ? '3.125rem 4.6875rem' : '0')};
+  }
+  @media (max-width: ${media.tablet}) {
+    padding: ${({ open }) => (open ? '8.125rem 3.6875rem' : '0')};
+
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  @media (max-width: ${media.between}) {
+    padding: ${({ open }) =>
+      open ? '6.125rem 2.6875rem 2.125rem 2.6875rem' : '0'};
+  }
+  @media (max-width: ${media.mobileM}) {
+    padding: ${({ open }) =>
+      open ? '6.125rem 1.6875rem 2.125rem 1.6875rem' : '0'};
+  }
 `;
 
 export const NavbarLeft = styled.div`
@@ -70,11 +114,22 @@ export const NavbarLeft = styled.div`
 
   overflow: hidden;
   white-space: nowrap;
+
+  @media (max-width: ${media.laptopL}) {
+    width: 50%;
+  }
+  @media (max-width: ${media.laptopS}) {
+    width: 60%;
+  }
+  @media (max-width: ${media.tablet}) {
+    height: 50vh;
+    width: 100%;
+  }
 `;
 
 export const NavbarRight = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 
   color: ${color.$white};
@@ -84,11 +139,22 @@ export const NavbarRight = styled.div`
 
   overflow: hidden;
   white-space: nowrap;
+
+  @media (max-width: ${media.laptopL}) {
+    width: 50%;
+  }
+  @media (max-width: ${media.laptopS}) {
+    width: 40%;
+  }
+  @media (max-width: ${media.tablet}) {
+    height: 50vh;
+    width: 100%;
+
+    justify-content: flex-start;
+  }
 `;
 
-export const NavbarItem = styled.h1`
-  font-size: ${typeface.$lg};
-`;
+export const NavbarItem = styled(large)``;
 
 export const NavbarArrow = styled.div`
   height: 30px;
@@ -98,6 +164,11 @@ export const NavbarArrow = styled.div`
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+
+  @media (max-width: ${media.between}) {
+    height: 20px;
+    width: 33px;
+  }
 `;
 
 export const NavbarItemDiv = styled.div`
@@ -110,11 +181,22 @@ export const NavbarItemDiv = styled.div`
   cursor: pointer;
 
   margin-bottom: 0.975rem;
+
+  @media (max-width: ${media.laptopL}) {
+    width: 27rem;
+  }
+  @media (max-width: ${media.laptopM}) {
+    width: 23rem;
+  }
+  @media (max-width: ${media.laptopS}) {
+    width: 20rem;
+  }
+  @media (max-width: ${media.mobileL}) {
+    width: 15rem;
+  }
 `;
 
-export const NavbarLegals = styled.h2`
-  font-size: ${typeface.$sm};
-
+export const NavbarLegals = styled(small)`
   &:not(:last-child) {
     margin-bottom: 0.975rem;
   }
@@ -147,6 +229,15 @@ export const NavbarHamburger = styled.div`
     open ? `2px  ${color.$white}` : `2px  ${color.$black}`};
 
   transition: all 800ms ease-in-out;
+
+  @media (max-width: ${media.laptopM}) {
+    height: 2px;
+    width: 2.4375rem;
+
+    &:first-child {
+      margin-bottom: 0.65rem;
+    }
+  }
 `;
 
 export const NavbarHamburgerDiv = styled.div`
@@ -169,9 +260,8 @@ const spin = keyframes`
   }
 `;
 
-export const CircularText = styled.h2`
+export const CircularText = styled(medium)`
   position: relative;
-  font-size: ${typeface.$md};
 
   border-radius: 100%;
 
@@ -180,6 +270,7 @@ export const CircularText = styled.h2`
   animation: ${spin} 20s linear infinite;
 
   margin-bottom: 5rem;
+  margin-right: 9rem;
 
   span {
     position: absolute;
@@ -187,5 +278,66 @@ export const CircularText = styled.h2`
     top: -50px;
     right: 90px;
     bottom: -50px;
+  }
+
+  @media (max-width: 1520px) {
+    span {
+      position: absolute;
+
+      top: -30px;
+      bottom: -30px;
+    }
+  }
+  @media (max-width: ${media.laptopL}) {
+    margin-bottom: 8rem;
+    margin-right: 7rem;
+    span {
+      position: absolute;
+
+      top: -15px;
+
+      bottom: -15px;
+    }
+  }
+  @media (max-width: ${media.laptopM}) {
+    margin-bottom: 10rem;
+    margin-right: 5rem;
+    span {
+      position: absolute;
+
+      top: 20px;
+      bottom: 20px;
+    }
+  }
+  @media (max-width: ${media.laptopS}) {
+    margin-bottom: 13rem;
+    margin-right: 1.5rem;
+    span {
+      position: absolute;
+
+      top: 80px;
+      bottom: 80px;
+    }
+  }
+  @media (max-width: ${media.tablet}) {
+    margin: 5rem 0 0 1rem;
+    span {
+      position: absolute;
+
+      top: 80px;
+      bottom: 80px;
+    }
+  }
+  @media (max-width: ${media.mobileL}) {
+    margin: 5rem 0 0 1rem;
+    span {
+      position: absolute;
+
+      top: 100px;
+      bottom: 100px;
+    }
+  }
+  @media (max-width: ${media.mobileM}) {
+    display: none;
   }
 `;

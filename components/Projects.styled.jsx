@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import * as typeface from '../theme/GlobalFonts';
+import { small, extrasmall } from '../theme/GlobalFonts';
 import * as color from '../theme/GlobalColors';
 import { media } from '../theme/MediaQueries';
 
@@ -9,6 +10,22 @@ export const ProjectsContainer = styled.div`
   align-items: center;
 
   padding: 11.28125rem 9.6875rem;
+
+  @media (max-width: ${media.laptopL}) {
+    padding: 11.28125rem 6.6875rem;
+  }
+  @media (max-width: ${media.laptopS}) {
+    padding: 11.28125rem 4.6875rem;
+  }
+  @media (max-width: ${media.tablet}) {
+    padding: 11.28125rem 3.6875rem;
+  }
+  @media (max-width: ${media.between}) {
+    padding: 11.28125rem 2.6875rem;
+  }
+  @media (max-width: ${media.mobileM}) {
+    padding: 11.28125rem 1.6875rem;
+  }
 `;
 
 export const ProjectsDiv = styled.div`
@@ -20,7 +37,17 @@ export const ProjectsDiv = styled.div`
 
   background-color: ${color.$black};
 
-  padding: 10rem;
+  padding: 8rem;
+
+  @media (max-width: ${media.laptopL}) {
+    padding: 4rem;
+  }
+  @media (max-width: ${media.tablet}) {
+    padding: 2.5rem;
+  }
+  @media (max-width: ${media.between}) {
+    padding: 1.5rem;
+  }
 `;
 
 //  Projects Box, Title, Slogan, Background
@@ -44,15 +71,43 @@ export const ProjectsBox = styled.div`
   }
 
   padding: 2rem;
+
+  @media (max-width: ${media.laptopL}) {
+    height: 500px;
+    padding: 1rem;
+  }
+  @media (max-width: ${media.laptopM}) {
+    height: 400px;
+
+    &:not(:last-child) {
+      margin-bottom: 4rem;
+    }
+  }
+  @media (max-width: ${media.laptopS}) {
+    height: 350px;
+    &:not(:last-child) {
+      margin-bottom: 3rem;
+    }
+  }
+  @media (max-width: ${media.laptopS}) {
+    height: 300px;
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
+  @media (max-width: ${media.between}) {
+    height: 250px;
+    &:not(:last-child) {
+      margin-bottom: 2rem;
+    }
+  }
 `;
 
-export const ProjectsTitle = styled.h2`
-  font-size: ${typeface.$sm};
+export const ProjectsTitle = styled(small)`
   color: ${color.$white};
 `;
 
-export const ProjectsSlogan = styled.h3`
-  font-size: ${typeface.$xs};
+export const ProjectsSlogan = styled(extrasmall)`
   color: ${color.$white};
 `;
 
@@ -71,4 +126,8 @@ export const ProjectsBackground = styled.div`
   padding: 0.5rem 2rem;
 
   margin-bottom: 0.5rem;
+
+  @media (max-width: ${media.laptopS}) {
+    padding: 0.5rem 1rem;
+  }
 `;

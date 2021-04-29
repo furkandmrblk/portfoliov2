@@ -51,9 +51,7 @@ export const Footer = (props) => {
         </FooterItemDiv>
         <FooterItemDiv>
           <FooterTitle>Contact</FooterTitle>
-          <FooterItem href={'mailto:' + data.email}>
-            ibrahimdmrblk@outlook.de
-          </FooterItem>
+          <FooterItem href={'mailto:' + data.email}>E-Mail</FooterItem>
         </FooterItemDiv>
       </FooterDiv>
       <FooterInfo>furkandmrblk 2021 | Built with NextJS</FooterInfo>
