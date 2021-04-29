@@ -47,7 +47,7 @@ export const NavDiv = styled.div`
 `;
 
 // Navbar Logo
-export const NavbarLogo = styled(small)`
+export const NavbarLogo = styled(smallA)`
   z-index: 9999;
 
   color: ${({ open }) => (open ? `${color.$white}` : `${color.$black}`)};
@@ -97,7 +97,7 @@ export const NavbarMegaMenu = styled.div`
   }
   @media (max-width: ${media.mobileM}) {
     padding: ${({ open }) =>
-      open ? '6.125rem 1.6875rem 2.125rem 1.6875rem' : '0'};
+      open ? '8.125rem 1.6875rem 2.125rem 1.6875rem' : '0'};
   }
 `;
 

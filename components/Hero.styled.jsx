@@ -62,7 +62,7 @@ export const HeroRow = styled.div`
   @media (max-width: ${media.between}) {
     padding: 3rem 1.5rem;
 
-    height: 82vh;
+    height: 72vh;
   }
 `;
 

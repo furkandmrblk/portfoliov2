@@ -72,9 +72,7 @@ export const Hero = (props) => {
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 1, ease: 'easeOut' }}
       >
-        <Link href="/#about">
-          <HeroScroll>SCROLL DOWN</HeroScroll>
-        </Link>
+        <HeroScroll>SCROLL DOWN</HeroScroll>
         <HeroScrollArrow />
       </HeroScrollDiv>
     </HeroContainer>

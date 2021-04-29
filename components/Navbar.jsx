@@ -33,6 +33,9 @@ export const Navbar = () => {
     if (open === false) {
       document.body.style.overflow = '';
     }
+  });
+
+  useEffect(() => {
     const angletoradian = (angle) => {
       return angle * (Math.PI / 180);
     };
