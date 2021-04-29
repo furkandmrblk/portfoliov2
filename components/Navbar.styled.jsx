@@ -24,19 +24,19 @@ export const NavbarContainer = styled.div`
   padding: 3.125rem 9.6875rem;
 
   @media (max-width: ${media.laptopL}) {
-    padding: 3.125rem 6.6875rem;
+    padding: 2.125rem 6.6875rem;
   }
   @media (max-width: ${media.laptopS}) {
-    padding: 3.125rem 4.6875rem;
+    padding: 2.125rem 4.6875rem;
   }
   @media (max-width: ${media.tablet}) {
-    padding: 3.125rem 3.6875rem;
+    padding: 2.125rem 3.6875rem;
   }
   @media (max-width: ${media.between}) {
-    padding: 3.125rem 2.6875rem;
+    padding: 1.725rem 2.6875rem;
   }
   @media (max-width: ${media.mobileM}) {
-    padding: 3.125rem 1.6875rem;
+    padding: 1.525rem 1.6875rem;
   }
 `;
 export const NavDiv = styled.div`

@@ -47,7 +47,7 @@ export const HeroRow = styled.div`
   padding: 5rem 8rem;
 
   @media (max-width: ${media.laptopL}) {
-    height: 70vh;
+    height: 75vh;
     padding: 4rem;
   }
   @media (max-width: ${media.laptopS}) {
@@ -56,9 +56,13 @@ export const HeroRow = styled.div`
   }
   @media (max-width: ${media.tablet}) {
     padding: 2.5rem;
+
+    height: 80vh;
   }
   @media (max-width: ${media.between}) {
     padding: 3rem 1.5rem;
+
+    height: 82vh;
   }
 `;
 
