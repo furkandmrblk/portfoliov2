@@ -18,6 +18,20 @@ const client = contentful.createClient({
 export default function DynamicPage({ post, posts }) {
   return (
     <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>furkandmrblk - {post.fields.slug}</title>
+        <meta
+          name="description"
+          content={
+            'furkandmrblk - Project: ' +
+            post.fields.projectName +
+            ' ' +
+            'Description: ' +
+            post.fields.projectDescription
+          }
+        />
+      </Head>
       <Project props={post} />
       <Footer props={posts} />
     </>

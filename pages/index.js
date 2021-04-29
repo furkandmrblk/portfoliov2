@@ -21,7 +21,12 @@ export default function Home({ posts, projects }) {
   return (
     <>
       <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>furkandmrblk - Homepage</title>
+        <meta
+          name="description"
+          content="Ibrahim-Furkan Demirbilek is a 21 year old student based in Berlin, who is passionate about Web Development, Brand Strategy & UI/UX Design."
+        />
       </Head>
       <Hero props={posts} />
       <About props={posts} />
