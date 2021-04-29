@@ -63,14 +63,16 @@ export const Hero = (props) => {
           </HeroVisualColumn>
         </HeroRight>
       </HeroRow>
-      <HeroScrollDiv
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 1, ease: 'easeOut' }}
-      >
-        <HeroScroll>SCROLL DOWN</HeroScroll>
-        <HeroScrollArrow />
-      </HeroScrollDiv>
+      <Link href="/#about">
+        <HeroScrollDiv
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 1, ease: 'easeOut' }}
+        >
+          <HeroScroll>SCROLL DOWN</HeroScroll>
+          <HeroScrollArrow />
+        </HeroScrollDiv>
+      </Link>
     </HeroContainer>
   );
 };

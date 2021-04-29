@@ -17,6 +17,7 @@ import {
   ProjectTextTitle,
   ProjectTitle,
   ProjectVerticalImage,
+  ProjectRowHero,
 } from './Project.styled';
 
 export const Project = (props) => {
@@ -35,7 +36,7 @@ export const Project = (props) => {
           </ProjectDescription>
         </ProjectColumn>
       </ProjectRow>
-      <ProjectRow>
+      <ProjectRowHero>
         <ProjectColumn>
           <ProjectCTADiv href={data.projectCta} target="_blank">
             <ProjectCTA style={{ color: `${data.textColor}` }}>
@@ -80,7 +81,7 @@ export const Project = (props) => {
             }}
           />
         )}
-      </ProjectRow>
+      </ProjectRowHero>
       <ProjectRow>
         <ProjectColumnHero>
           {data.projectTextTitle2 && data.projectText2 && (

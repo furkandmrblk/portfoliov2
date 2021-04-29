@@ -72,6 +72,9 @@ export const NavbarMegaMenu = styled.div`
   background-color: ${color.$crimson};
   color: ${color.$white};
 
+  white-space: nowrap;
+  overflow: hidden;
+
   display: flex;
   align-items: center;
 
