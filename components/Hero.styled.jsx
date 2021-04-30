@@ -223,13 +223,13 @@ export const HeroVisualRedBlock2 = styled.div`
     height: 60px;
     width: 60px;
 
-    margin-top: 5rem;
+    margin-top: 4rem;
   }
   @media (max-width: ${media.between}) {
     height: 40px;
     width: 40px;
 
-    margin: 6rem 0 18px 10px;
+    margin: 3rem 0 18px 10px;
   }
 `;
 
@@ -299,13 +299,13 @@ export const HeroVisualBlackBlock2 = styled.div`
     height: 60px;
     width: 60px;
 
-    margin-top: 5rem;
+    margin-top: 4rem;
   }
   @media (max-width: ${media.between}) {
     height: 40px;
     width: 40px;
 
-    margin-top: 6rem;
+    margin-top: 3rem;
   }
 `;
 

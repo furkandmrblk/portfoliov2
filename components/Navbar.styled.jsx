@@ -89,18 +89,18 @@ export const NavbarMegaMenu = styled.div`
     padding: ${({ open }) => (open ? '3.125rem 4.6875rem' : '0')};
   }
   @media (max-width: ${media.tablet}) {
-    padding: ${({ open }) => (open ? '8.125rem 3.6875rem' : '0')};
+    padding: ${({ open }) => (open ? '8.125rem 3.6875rem' : '8.125rem 0')};
 
     flex-direction: column;
     align-items: flex-start;
   }
   @media (max-width: ${media.between}) {
     padding: ${({ open }) =>
-      open ? '6.125rem 2.6875rem 2.125rem 2.6875rem' : '0'};
+      open ? '6.125rem 2.6875rem 2.125rem 2.6875rem' : '6.125rem 0 2.125rem 0'};
   }
   @media (max-width: ${media.mobileM}) {
     padding: ${({ open }) =>
-      open ? '8.125rem 1.6875rem 2.125rem 1.6875rem' : '0'};
+      open ? '8.125rem 1.6875rem 2.125rem 1.6875rem' : '8.125rem 0 2.125rem 0'};
   }
 `;
 
